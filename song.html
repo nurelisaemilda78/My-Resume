@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Resume : Song</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+body{
+    background-image:url('song9.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    min-height:100vh;
+}
+
+.menu-btn{
+    position:fixed;
+    top:18px;
+    left:18px;
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:#000;
+    color:#fff;
+    font-size:24px;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+    z-index:1100;
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-260px;               
+    width:240px;
+    height:100vh;               
+    background:#fff6f8;
+    padding:26px 18px;
+    border-radius:0 26px 26px 0;
+    box-shadow:12px 0 35px rgba(0,0,0,0.25);
+    border-right:3px solid #ffb3c7;
+    transition:0.4s ease;
+    z-index:1050;
+}
+
+.sidebar.active{
+    left:0;                     
+}
+
+.sidebar h2{
+    text-align:center;
+    font-size:16px;
+    color:#c2366b;
+    margin-bottom:18px;
+}
+
+/* MENU LIST */
+.sidebar ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 14px;
+    background:#ffe6ec;
+    border-radius:14px;
+    color:#333;
+    font-size:14px;
+    text-decoration:none;
+    transition:0.25s;
+}
+
+.sidebar a:hover{
+    background:#ffd1dc;
+    transform:translateX(6px);
+    color:#c2366b;
+}
+
+.page{
+    max-width:1100px;
+    margin:20px auto;
+    padding:20px;
+}
+
+.main{
+    background: rgba(0,0,0,0.55);
+    border-radius: 18px;
+    border: 2px solid rgba(255,171,181,0.8);
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.header{
+    background: rgba(0,0,0,0.75);
+    text-align: center;
+    padding: 22px;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.content{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.playlist-box{
+    padding: 30px;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.playlist-box h1{ font-size:32px; }
+
+.subtitle{
+    color:#ccc;
+    margin-bottom:25px;
+}
+
+.slider{ position: relative; }
+
+.song-card{
+    background:#4f4f57;
+    border-radius:20px;
+    padding:25px;
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.song-card img{
+    width:200px;
+    height:200px;
+    border-radius:12px;
+    object-fit:cover;
+}
+
+.song-info{ flex:1; text-align:left; }
+
+.song-info h2{ font-size:26px; }
+
+.artist{ opacity:0.85; margin-bottom:15px; }
+
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:#fff;
+    color:#000;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.arrow.left{ left:-20px; }
+.arrow.right{ right:-20px; }
+
+.footer{
+    background: rgba(0,0,0,0.75);
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+    <h2>✨ Menu</h2>
+    <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">👤 About</a></li>
+        <li><a href="education.html">🎓 Education</a></li>
+        <li><a href="skills.html">⭐ Skills</a></li>
+        <li><a href="family.html">👪 Family</a></li>
+        <li><a href="media.html">📸 Media</a></li>
+        <li><a href="song.html">🎵 Song</a></li>
+    </ul>
+</nav>
+
+<div class="page">
+<div class="main">
+
+<header class="header">ELISA'S RESUME : SONG</header>
+
+<section class="content">
+<div class="playlist-box">
+
+<h1>Playlist</h1>
+<p class="subtitle">Songs that colour my world</p>
+
+<div class="slider">
+    <div class="arrow left" onclick="prevSong()">❮</div>
+    <div class="arrow right" onclick="nextSong()">❯</div>
+
+    <div class="song-card">
+        <img id="cover" src="song1.jpg">
+
+        <div class="song-info">
+            <h2 id="title">You</h2>
+            <p class="artist" id="artist">Lloyd</p>
+
+            <iframe id="spotify"
+                style="border-radius:12px"
+                width="100%"
+                height="152"
+                frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+</div>
+</section>
+
+<footer class="footer">
+copyright © NURELISA EMILDA BINTI MOHD SUHAIMI
+</footer>
+
+</div>
+</div>
+
+<script>
+function toggleMenu(){
+    document.getElementById("sidebar").classList.toggle("active");
+}
+
+const songs = [
+{ title:"You", artist:"Lloyd", cover:"song1.jpg", spotify:"https://open.spotify.com/embed/track/5Y77SQxEr1eiofPeUTPHxM" },
+{ title:"Cherish The Day", artist:"Sade", cover:"song2.jpg", spotify:"https://open.spotify.com/embed/track/22QiTJqDn1BIRSh4mkNJ5w" },
+{ title:"Move", artist:"Adam Port, Stryve, Keinemusik", cover:"song3.jpg", spotify:"https://open.spotify.com/embed/track/1BJJbSX6muJVF2AK7uH1x4" },
+{ title:"Chanel", artist:"Tyla", cover:"song4.jpg", spotify:"https://open.spotify.com/embed/track/4VxTzYm00mg82MuoT35Ja7" },
+{ title:"My All", artist:"Mariah Carey", cover:"song5.jpg", spotify:"https://open.spotify.com/embed/track/3RSpK5Y0y5tl25qvssrwJ6" },
+{ title:"Please Please Please Let Me Get What I Want", artist:"The Smiths", cover:"song6.jpg", spotify:"https://open.spotify.com/embed/track/6BrMEbPSSj55nQhkgf6DnE" },
+{ title:"Break", artist:"Misha Omar", cover:"song7.jpg", spotify:"https://open.spotify.com/embed/track/7fr4AUYWGcrzxJZJc7My4U" },
+{ title:"Bawa Dia Kembali", artist:"Mahalini", cover:"song8.jpg", spotify:"https://open.spotify.com/embed/track/25M9piWxSsq0xLcjQW5yz6" }
+];
+
+let index = 0;
+function showSong(){
+    title.innerText = songs[index].title;
+    artist.innerText = songs[index].artist;
+    cover.src = songs[index].cover;
+    spotify.src = songs[index].spotify;
+}
+function nextSong(){ index=(index+1)%songs.length; showSong(); }
+function prevSong(){ index=(index-1+songs.length)%songs.length; showSong(); }
+showSong();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Resume : About Me</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Poppins", sans-serif;
+}
+
+body{
+    background-image:url('horse.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+.menu-btn{
+    position:fixed;
+    top:18px;
+    left:12px;              
+    width:48px;
+    height:48px;
+    background:#000;
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    font-size:24px;
+    cursor:pointer;
+    z-index:1200;
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+}
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    opacity:0;
+    pointer-events:none;
+    transition:0.3s;
+    z-index:1000;
+}
+.overlay.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-260px;
+    width:240px;
+    height:100vh;               
+    background:#fff6f8;
+    padding:28px 18px;
+    border-radius:0 28px 28px 0;
+    box-shadow:12px 0 35px rgba(0,0,0,0.3);
+    border-right:3px solid #ffb3c7;
+    transition:0.4s ease;
+    z-index:1100;
+}
+
+.sidebar.active{
+    left:0;
+}
+
+.sidebar h2{
+    text-align:center;
+    color:#c2366b;
+    margin-bottom:18px;
+}
+
+.sidebar ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 14px;
+    background:#ffe6ec;
+    border-radius:14px;
+    text-decoration:none;
+    font-size:14px;
+    color:#333;
+    transition:0.25s;
+}
+
+.sidebar a:hover{
+    background:#ffd1dc;
+    transform:translateX(6px);
+    color:#c2366b;
+}
+
+.page{
+    max-width:1100px;
+    margin:20px auto;
+    padding:20px;
+}
+
+.main{
+    background:rgba(0,0,0,0.55);
+    border-radius:20px;
+    color:#fff;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,0.25);
+    border:2px solid rgba(255,171,181,0.8);
+}
+
+.header{
+    background:#000;
+    text-align:center;
+    padding:22px;
+    font-size:28px;
+    letter-spacing:2px;
+    font-weight:700;
+}
+
+.content{
+    padding:40px;
+}
+
+.about-row{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+.about-text{
+    flex:1 1 260px;
+}
+
+.about-text h1{
+    font-size:50px;
+}
+
+.underline{
+    width:80px;
+    height:2px;
+    background:#fff;
+    margin:10px 0 20px;
+}
+
+.about-text p{
+    font-size:18px;
+    line-height:1.7;
+}
+
+.about-photo{
+    flex:0 0 260px;
+    display:flex;
+    justify-content:center;
+}
+
+.about-photo img{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid #fff;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.details-box{
+    margin-top:50px;
+    background:#fff;
+    padding:30px;
+    border-radius:22px;
+    color:#333;
+}
+
+.details-box h2{
+    text-align:center;
+    color:#b3305c;
+    margin-bottom:25px;
+}
+
+.details-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.details-table th{
+    width:30%;
+    background:rgba(255,182,193,0.35);
+    padding:14px;
+    text-align:left;
+    border-radius:12px 0 0 12px;
+}
+
+.details-table td{
+    background:rgba(255,240,244,0.7);
+    padding:14px;
+    border-radius:0 12px 12px 0;
+}
+
+.details-table tr{
+    border-bottom:12px solid transparent;
+}
+
+.footer{
+    background:#000;
+    text-align:center;
+    padding:10px;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HAMBURGER -->
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<!-- OVERLAY -->
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+    <h2>✨ Menu</h2>
+    <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">👤 About</a></li>
+        <li><a href="education.html">🎓 Education</a></li>
+        <li><a href="skills.html">⭐ Skills</a></li>
+        <li><a href="family.html">👪 Family</a></li>
+        <li><a href="media.html">📸 Media</a></li>
+        <li><a href="song.html">🎵 Song</a></li>
+    </ul>
+</nav>
+
+<div class="page"> 
+
+<div class="main"> 
+
+<header class="header">ELISA'S RESUME : ABOUT ME </header>
+
+<section class="content"> 
+
+<div class="about-row">
+ <div class="about-text">
+ <h1>About Me 𐙚⋆°｡⋆♡🧸ིྀ ♥︎
+ <div class="underline"></div> 
+<p> Hi! My name is Nurelisa Emilda Binti Mohd Suhaimi. I am a student who enjoys learning new things, especially in technology, creativity, and self-improvement. I love spending time with my family and friends,whether it's going out for cafe hunting, yapping, capturing memories, travelling, and discovering new experiences that inspire me. 
+<br><br> 
+In the future, I hope to build a stable career. Although I may not have everything figured out yet, I am excited to explore different paths and discover what truly suits me. I am an easygoing and friendly person, and little things like taking photos and travelling to new places keep me inspired and motivated. </p> 
+</div> 
+
+<div class="about-photo"> 
+<img src="me1.jpg">
+ </div>
+ </div> 
+
+<div class="details-box">
+ <h2>Personal Details</h2>
+ <table class="details-table">
+ <tr><th>Name</th><td>Nurelisa Emilda Binti Mohd Suhaimi</td>
+</tr>
+<tr><th>Age</th><td>20 Years</td></tr> 
+<tr><th>Birthdate</th><td>21 / 06 / 2005</td></tr>
+<tr><th>Nationality</th><td>Malaysia</td></tr> 
+<tr><th>Religion</th><td>Islam</td></tr> 
+<tr><th>Race</th><td>Melayu</td></tr>
+<tr><th>Adress</th><td>Johor Bahru, Johor</td></tr>
+<tr><th>Phone Number</th><td>011-12146653 
+<tr><th>Social Media</th><td>Instagram @elisaemildae<br> TikTok @elisa<br> YouTube @nurelisaemilda78</td></tr> 
+<tr><th>Email</th><td>nurelisaemilda78@gmail.com</td></tr>
+</table> 
+</div> 
+
+</section>
+
+<footer class="footer"> copyright © NURELISA EMILDA BINTI MOHD SUHAIMI 
+</footer>
+
+</div>
+</div>
+
+<script>
+function toggleMenu(){
+    document.getElementById("sidebar").classList.toggle("active");
+    document.querySelector(".overlay").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

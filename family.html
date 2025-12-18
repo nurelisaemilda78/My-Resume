@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Resume : Family</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Poppins", sans-serif;
+}
+
+body{
+    background-image:url('fam.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+.menu-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    width:48px;
+    height:48px;
+    background:#000;
+    color:#fff;
+    font-size:24px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:1200;
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-260px;               
+    width:240px;
+    height:100vh;              
+    background:#fff6f8;
+    padding:28px 18px;
+    border-radius:0 26px 26px 0;
+    box-shadow:12px 0 35px rgba(0,0,0,0.25);
+    border-right:3px solid #ffb3c7;
+    transition:0.4s ease;
+    z-index:1100;
+}
+
+.sidebar.active{
+    left:0;
+}
+
+.sidebar h2{
+    font-size:16px;
+    color:#c2366b;
+    margin-bottom:18px;
+    text-align:center;
+}
+
+.sidebar ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 14px;
+    background:#ffe6ec;
+    border-radius:14px;
+    font-size:14px;
+    color:#333;
+    text-decoration:none;
+    transition:0.25s;
+}
+
+.sidebar a:hover{
+    background:#ffd1dc;
+    transform:translateX(6px);
+    color:#c2366b;
+}
+
+.page{
+    max-width:1100px;
+    margin:20px auto;
+    padding:20px;
+}
+
+.main{
+    background:rgba(0,0,0,0.65);
+    border-radius:18px;
+    overflow:hidden;
+    border:2px solid rgba(255,171,181,0.8);
+    color:#fff;
+}
+
+.header{
+    background:rgba(0,0,0,0.85);
+    text-align:center;
+    padding:18px;
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.content{
+    padding:35px 40px 40px;
+}
+
+.family-row{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.family-text{
+    flex:1 1 320px;
+    background:#fff7f4;
+    color:#333;
+    padding:28px;
+    border-radius:18px;
+}
+
+.family-text h1{
+    font-size:26px;
+    text-align:center;
+    margin-bottom:16px;
+}
+
+.family-text p{
+    font-size:16px;
+    line-height:1.7;
+    text-align:justify;
+}
+
+.family-photo{
+    flex:0 0 350px;
+    height:350px;
+    overflow:hidden;
+    border-radius:20px;
+}
+
+.family-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.family-section-title{
+    text-align:center;
+    margin:50px 0 20px;
+    font-size:28px;
+    font-weight:600;
+    color:#ffccd9;
+}
+
+.parent-cards{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.parent-card{
+    background:rgba(255,255,255,0.9);
+    width:280px;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.2);
+    border:2px solid #ff7fa8;
+    text-align:center;
+}
+
+.parent-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.parent-name{
+    margin-top:12px;
+    font-size:20px;
+    font-weight:600;
+    color:#000;
+}
+
+.parent-quote{
+    margin-top:8px;
+    font-size:14px;
+    color:#333;
+    font-style:italic;
+}
+
+.filmstrip-wrapper{
+    margin:30px auto 10px;
+    overflow:hidden;
+    width:100%;
+    border-radius:18px;
+    background:#000;
+    padding:12px 0;
+}
+
+.filmstrip{
+    display:flex;
+    gap:20px;
+    animation:slideFilm 30s linear infinite;
+}
+
+.filmstrip img,
+.filmstrip video{
+    height:180px;
+    border-radius:10px;
+    filter:grayscale(100%);
+    transition:0.4s;
+}
+
+.filmstrip img:hover,
+.filmstrip video:hover{
+    filter:grayscale(0%);
+    transform:scale(1.05);
+}
+
+@keyframes slideFilm{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-50%); }
+}
+
+.footer{
+    background:rgba(0,0,0,0.85);
+    text-align:center;
+    padding:10px;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+    <h2>✨ Menu</h2>
+    <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">👤 About</a></li>
+        <li><a href="education.html">🎓 Education</a></li>
+        <li><a href="skills.html">⭐ Skills</a></li>
+        <li><a href="family.html">👪 Family</a></li>
+        <li><a href="media.html">📸 Media</a></li>
+        <li><a href="song.html">🎵 Song</a></li>
+    </ul>
+</nav>
+
+<div class="page">
+<div class="main">
+
+<header class="header">ELISA'S RESUME : FAMILY</header>
+
+<section class="content">
+
+<!-- YOUR ORIGINAL CONTENT (UNCHANGED) -->
+
+<div class="family-row">
+    <div class="family-text">
+        <h1>𝙰 𝙲𝚒𝚛𝚌𝚕𝚎 𝚘𝚏 𝚂𝚞𝚙𝚙𝚘𝚛𝚝</h1>
+        <p>
+            I may be an only child, but my life is filled with love and warmth from the people around me.
+            Growing up without siblings never made me feel alone, because my parents filled every space
+            in my life with attention, encouragement, and understanding. My parents are my strongest
+            support system, guiding and supporting me through every step of my journey.
+            <br><br>
+            Being an only child has taught me the true meaning of connection and appreciation.
+            My family may be small in number, but the bond we share is incredibly deep and meaningful.
+            They are my biggest blessing and the foundation of who I am today ♥
+        </p>
+    </div>
+
+    <div class="family-photo">
+        <img src="family.jpg">
+    </div>
+</div>
+
+<h2 class="family-section-title">𝑴𝒆𝒆𝒕 𝑴𝒚 𝑭𝒂𝒎𝒊𝒍𝒚</h2>
+
+<div class="parent-cards">
+    <div class="parent-card">
+        <img src="dad.jpg">
+        <div class="parent-name">Dad</div>
+        <div class="parent-quote">"A father doesn’t tell you he loves you. He shows you."</div>
+    </div>
+
+    <div class="parent-card">
+        <img src="mom.jpg">
+        <div class="parent-name">Mom</div>
+        <div class="parent-quote">"A mother’s love is endless and unconditional."</div>
+    </div>
+</div>
+
+<h2 class="family-section-title">𝑭𝒂𝒎𝒊𝒍𝒚 𝑴𝒐𝒎𝒆𝒏𝒕𝒔</h2>
+
+<div class="filmstrip-wrapper">
+    <div class="filmstrip">
+        <img src="moment1.jpg">
+        <video src="video1.mp4" muted autoplay loop></video>
+        <img src="moment2.jpg">
+        <video src="video2.mov" muted autoplay loop></video>
+        <img src="moment3.jpg">
+        <video src="video3.mp4" muted autoplay loop></video>
+        <img src="moment4.jpg">
+        <img src="moment5.jpg">
+    </div>
+</div>
+
+<audio id="bgMusic" autoplay loop>
+    <source src="fam.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const bgMusic = document.getElementById("bgMusic");
+document.addEventListener("click", () => {
+    bgMusic.play();
+}, { once:true });
+</script>
+
+</section>
+
+<footer class="footer">
+copyright © NURELISA EMILDA BINTI MOHD SUHAIMI
+</footer>
+
+</div>
+</div>
+
+<script>
+function toggleMenu(){
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- 🌸 MODERN FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+<!-- 🌐 SOCIAL ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Poppins", sans-serif;
+}
+
+body{
+    background-image:url('leopard.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+.ribbon-float span{
+    position: fixed;
+    bottom: -50px;
+    font-size: 26px;
+    opacity: 0.6;
+    animation: ribbonUp 12s linear infinite;
+    z-index: 1;
+}
+.ribbon-float span:nth-child(1){ left:10%; animation-delay:0s;}
+.ribbon-float span:nth-child(2){ left:30%; animation-delay:3s;}
+.ribbon-float span:nth-child(3){ left:50%; animation-delay:6s;}
+.ribbon-float span:nth-child(4){ left:70%; animation-delay:2s;}
+.ribbon-float span:nth-child(5){ left:90%; animation-delay:5s;}
+
+@keyframes ribbonUp{
+    0%{ transform:translateY(0) rotate(0deg); opacity:0;}
+    20%{opacity:0.6;}
+    100%{ transform:translateY(-120vh) rotate(360deg); opacity:0;}
+}
+
+.clock-card{
+    position:fixed;
+    top:16px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:16px 30px;
+    border-radius:26px;
+    background:linear-gradient(135deg,
+        rgba(255,182,193,0.9),
+        rgba(255,214,232,0.9)
+    );
+    backdrop-filter: blur(12px);
+    box-shadow:0 14px 35px rgba(0,0,0,0.25);
+    text-align:center;
+    z-index:1400;
+    border:1px solid rgba(255,255,255,0.45);
+    animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+    0%{ transform:translateX(-50%) scale(1); }
+    50%{ transform:translateX(-50%) scale(1.03); }
+    100%{ transform:translateX(-50%) scale(1); }
+}
+
+.clock-date{
+    font-family:'Quicksand', sans-serif;
+    font-size:13px;
+    font-weight:700;
+    color:#8b0046;
+}
+
+.clock-time{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:26px;
+    font-weight:700;
+    color:#4b0024;
+    letter-spacing:1.5px;
+}
+
+.menu-btn{
+    position:fixed;
+    top:18px;
+    left:12px;
+    font-size:26px;
+    background:#000;
+    color:#fff;
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:1500;
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    opacity:0;
+    pointer-events:none;
+    transition:0.3s;
+    z-index:1200;
+}
+.overlay.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-260px;
+    width:240px;
+    height:100vh;
+    background:#fff6f8;
+    padding:26px 18px;
+    border-radius:0 28px 28px 0;
+    border-right:3px solid #ffb3c7;
+    box-shadow:12px 0 35px rgba(0,0,0,0.3);
+    transition:0.4s ease;
+    z-index:1300;
+}
+
+.sidebar.active{ left:0; }
+
+.sidebar h2{
+    text-align:center;
+    color:#b30059;
+    margin-bottom:20px;
+}
+
+.sidebar ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 14px;
+    background:#ffe1ea;
+    border-radius:14px;
+    text-decoration:none;
+    color:#333;
+    font-size:14px;
+    transition:0.25s;
+}
+
+.sidebar a:hover{
+    background:#ffc7d8;
+    transform:translateX(6px);
+    color:#b30059;
+}
+
+.page{
+    max-width:1200px;
+    margin:0 auto;
+    padding:20px;
+    position:relative;
+    z-index:5;
+}
+
+.content-box{
+    padding:160px 40px 60px;
+    text-align:center;
+}
+
+.welcome-text{
+    animation:popUp 1.2s ease forwards;
+    transform:scale(0.85);
+    opacity:0;
+}
+
+@keyframes popUp{
+    to{ transform:scale(1); opacity:1; }
+}
+
+.welcome-text h1{
+    font-size:38px;
+    color:#ff4d9d;
+    margin-bottom:18px;
+}
+
+.welcome-text p{
+    font-size:18px;
+    max-width:720px;
+    margin:auto;
+    line-height:1.7;
+    color:#ffffff;
+}
+
+.social-bar{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:18px;
+    z-index:1400;
+}
+
+.social-bar a{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    color:#ffffff;
+    font-size:22px;
+    transition:0.3s ease;
+    text-decoration:none;
+}
+
+.social-bar a:hover{
+    transform:translateY(-6px) scale(1.1);
+}
+
+.social-bar a.ig:hover{ background:#e1306c; }
+.social-bar a.ws:hover{ background:#25D366; }
+.social-bar a.tt:hover{ background:#000; }
+
+</style>
+</head>
+
+<body>
+
+<!-- 🎀 FLOATING RIBBONS -->
+<div class="ribbon-float">
+    <span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span>
+</div>
+
+<!-- 🕒 CLOCK -->
+<div class="clock-card">
+    <div class="clock-date" id="date"></div>
+    <div class="clock-time" id="time"></div>
+</div>
+
+<!-- 🎵 AUTOPLAY MUSIC -->
+<audio autoplay loop>
+    <source src="background.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ☰ MENU -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<nav class="sidebar" id="sidebar">
+    <h2>✨ Menu</h2>
+    <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">👤 About</a></li>
+        <li><a href="education.html">🎓 Education</a></li>
+        <li><a href="skills.html">⭐ Skills</a></li>
+        <li><a href="family.html">👪 Family</a></li>
+        <li><a href="media.html">📸 Media</a></li>
+        <li><a href="song.html">🎵 Song</a></li>
+    </ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="page">
+    <div class="content-box">
+        <div class="welcome-text">
+            <h1>🎀 𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝓉𝑜 𝐸𝓁𝒾𝓈𝒶 𝐸𝓂𝒾𝓁𝒹𝒶 𝒲𝑒𝒷𝓈𝒾𝓉𝑒 🎀</h1>
+            <p>
+                Hello! I’m Nurelisa Emilda.  
+                This website is a space where I share my journey, experiences,
+                and the things that shape who I am.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- 🌐 SOCIAL MEDIA -->
+<div class="social-bar">
+    <a href="https://instagram.com/elisaemildae" target="_blank" class="ig">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/601112146653" target="_blank" class="ws">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://tiktok.com/@turofgk5" target="_blank" class="tt">
+        <i class="fab fa-tiktok"></i>
+    </a>
+</div>
+
+<script>
+function toggleMenu(){
+    sidebar.classList.toggle("active");
+    document.querySelector(".overlay").classList.toggle("active");
+}
+
+/* CLOCK */
+function updateClock(){
+    const now = new Date();
+    document.getElementById("time").innerText =
+        now.toLocaleTimeString("en-US",{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    document.getElementById("date").innerText =
+        now.toLocaleDateString("en-US",{weekday:'long', day:'2-digit', month:'long', year:'numeric'});
+}
+setInterval(updateClock,1000);
+updateClock();
+</script>
+
+<audio id="bgMusic" autoplay loop>
+    <source src="hot.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const bgMusic = document.getElementById("bgMusic");
+document.addEventListener("click", () => {
+    bgMusic.play();
+}, { once:true });
+</script>
+
+</body>
+</html>
